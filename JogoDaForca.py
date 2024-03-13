@@ -5,7 +5,7 @@ import random
 palavras = ["cobra", "macaco", "urso", "tartaruga", "porco"]
 palavras2 = ["abacate", "laranja", "banana", "pessego", "tomate"]
 
-#
+# Aqui uso o random para sortear as palavras com tema1
 def escolherPalavra1():
     return random.choice(palavras)
 
