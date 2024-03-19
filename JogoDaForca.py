@@ -1,5 +1,6 @@
 #importo a biblioteca random para fazer o random dos arrays
 import random
+import os
 
 #Aqui criei as duas arrays de dois temas diferentes 
 palavras = ["cobra", "macaco", "urso", "tartaruga", "porco"]
@@ -12,6 +13,7 @@ def escolherPalavra1():
 # Aqui uso o random para sortear as palavras com tema2
 def escolherPalavra2():
     return random.choice(palavras2)
+
 
 
 #Função para jogar o jogo se for o tema1
@@ -52,7 +54,7 @@ def jogarForca():
 
             # vê se a palavra que escreveste esta certa
             if set(palavraTema1) == letrasCorretas:
-                print(f"Parabéns! Acertaste pro player: {palavraTema1}")
+                print(f"\033[32Parabéns! Acertaste pro player: \033[m \033[36{palavraTema1}[m")
                 return
 
     #Se chegar ao numero de tentativas máximas faz este print
@@ -97,7 +99,7 @@ def jogarForca2():
 
             # vê se a palavra que escreveste esta certa
             if set(palavraTema2) == letrasCorretas:
-                print(f"Parabéns! Acertaste pro player: {palavraTema2}")
+                print(f"\033[32Parabéns! Acertaste pro player: \033[m \033[36{palavraTema2}[m")
                 return
 
     #Se chegar ao numero de tentativas máximas faz este print    
@@ -105,6 +107,18 @@ def jogarForca2():
 
 #Aqui é a função main, faz o usuário escolher o tema
 def main():
+    nome = input("\033[32mNickname:\033[m ")
+    
+    with open("Jogo Da Forca PT.txt", "a") as f:
+        f.write('Nome - ' + nome + '\n')
+    
+    #f = open("Jogo Da Forca PT.txt", "w")
+    #f.write(nome)
+    #f = open("Jogo Da Forca PT.txt", 'r')
+    #f.close()
+
+    print("")
+
     print("1-animais")
     print("2-frutas")
     tema:int = int(input("Escolhe um tema: "))
@@ -113,7 +127,7 @@ def main():
     if tema == 1:
         jogarForca()
 
-    #Se o tema for 1 executa a função jogarForca()
+    #Se o tema for 2 executa a função jogarForca2()
     elif tema == 2:
         jogarForca2()
 
@@ -123,7 +137,8 @@ def main():
 
 #Aqui é o main em si
 if __name__ == "__main__":
-    print("JOGO DA FORCA")
+    print("")
+    print("\033[35mJOGO DA FORCA\033[m")
     print("")
     main()
     
